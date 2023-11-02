@@ -39,6 +39,18 @@ app.get("/beers", (req, res) => {
     });
 });
 
+app.get("/random-beer", (req, res) =>{
+  punkAPI.getRandom()
+  .then((listRandom) => {
+    console.log(listRandom)
+    res.render("random-beer.hbs", {
+      listRandom
+    });
+})
+.catch((err) => {
+  console.log(err);
+});
+});
 
 
 
